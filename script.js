@@ -31,8 +31,8 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
     const message = document.getElementById('loginMessage');
 
     if (users[username] && users[username] === password) {
-        message.style.color = 'green';
-        message.innerText = 'Login successful!';
+        localStorage.setItem('loggedInUser', username);
+        window.location.href = 'dashboard.html';
     } else {
         message.style.color = 'red';
         message.innerText = 'Invalid username or password';
@@ -73,3 +73,19 @@ document.getElementById('forgotPasswordForm').addEventListener('submit', functio
         message.innerText = 'Username not found';
     }
 });
+
+// Logout functionality
+document.getElementById('logoutButton')?.addEventListener('click', function() {
+    localStorage.removeItem('loggedInUser');
+    window.location.href = 'index.html';
+});
+
+// Dashboard welcome message
+if (window.location.pathname.includes('dashboard.html')) {
+    const loggedInUser = localStorage.getItem('loggedInUser');
+    if (!loggedInUser) {
+        window.location.href = 'index.html';
+    } else {
+        document.getElementById('welcomeMessage').innerText = `Hello, ${loggedInUser}!`;
+    }
+}
