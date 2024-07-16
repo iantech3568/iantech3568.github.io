@@ -10,20 +10,7 @@ This is a simple project to test GitHub Pages hosting. The site includes a butto
 
 ## View the Site
 
-You can view the live site at [https://your-username.github.io/your-repo-name](https://your-username.github.io/your-repo-name).
+You can view the live site at https://iantech3568.github.io/.
 
-## How to Use
-
-1. **Clone the repository**:
-    ```sh
-    git clone https://github.com/your-username/your-repo-name.git
-    ```
-2. **Navigate to the project directory**:
-    ```sh
-    cd your-repo-name
-    ```
-3. **Open `index.html` in your web browser**.
-
-## License
 
 This project is licensed under the MIT License.
