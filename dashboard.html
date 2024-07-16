@@ -10,14 +10,25 @@
     <div class="container">
         <h1>Welcome to Your Dashboard</h1>
         <p id="welcomeMessage"></p>
+
+        Hello, I am ianooo
         <nav>
             <ul>
-                <li><a href="profile.html">Profile</a></li>
-                <li><a href="settings.html">Settings</a></li>
+                <li><a href="javascript:void(0);" onclick="toggleDropdown('profileDropdown')">Profile ▼</a>
+                    <ul id="profileDropdown" class="dropdown-content">
+                        <li><a href="#">View Profile</a></li>
+                        <li><a href="#">Edit Profile</a></li>
+                    </ul>
+                </li>
+                <li><a href="javascript:void(0);" onclick="toggleDropdown('settingsDropdown')">Settings ▼</a>
+                    <ul id="settingsDropdown" class="dropdown-content">
+                        <li><a href="#">Account Settings</a></li>
+                        <li><a href="#">Preferences</a></li>
+                    </ul>
+                </li>
                 <li><a href="#" id="logoutButton">Logout</a></li>
             </ul>
         </nav>
-    
     </div>
     <script src="script.js"></script>
 </body>
