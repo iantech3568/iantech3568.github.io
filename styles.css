@@ -8,7 +8,7 @@ body {
     margin: 0;
 }
 
-.login-container {
+.container {
     background-color: #fff;
     padding: 20px;
     border-radius: 5px;
@@ -52,7 +52,16 @@ button:hover {
     background-color: #005fa3;
 }
 
-#message {
+#loginMessage, #registerMessage, #forgotPasswordMessage {
     color: red;
     margin-top: 15px;
+}
+
+a {
+    color: #007acc;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
 }
