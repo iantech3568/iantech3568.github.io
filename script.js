@@ -1,20 +1,20 @@
 // Show and hide different forms
-document.getElementById('showRegister').addEventListener('click', function() {
+document.getElementById('showRegister')?.addEventListener('click', function() {
     document.querySelector('.login-container').style.display = 'none';
     document.querySelector('.register-container').style.display = 'block';
 });
 
-document.getElementById('showLoginFromRegister').addEventListener('click', function() {
+document.getElementById('showLoginFromRegister')?.addEventListener('click', function() {
     document.querySelector('.register-container').style.display = 'none';
     document.querySelector('.login-container').style.display = 'block';
 });
 
-document.getElementById('showForgotPassword').addEventListener('click', function() {
+document.getElementById('showForgotPassword')?.addEventListener('click', function() {
     document.querySelector('.login-container').style.display = 'none';
     document.querySelector('.forgot-password-container').style.display = 'block';
 });
 
-document.getElementById('showLoginFromForgotPassword').addEventListener('click', function() {
+document.getElementById('showLoginFromForgotPassword')?.addEventListener('click', function() {
     document.querySelector('.forgot-password-container').style.display = 'none';
     document.querySelector('.login-container').style.display = 'block';
 });
@@ -23,7 +23,7 @@ document.getElementById('showLoginFromForgotPassword').addEventListener('click',
 const users = JSON.parse(localStorage.getItem('users')) || {};
 
 // Handle login form submission
-document.getElementById('loginForm').addEventListener('submit', function(event) {
+document.getElementById('loginForm')?.addEventListener('submit', function(event) {
     event.preventDefault();
 
     const username = document.getElementById('loginUsername').value;
@@ -40,7 +40,7 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
 });
 
 // Handle register form submission
-document.getElementById('registerForm').addEventListener('submit', function(event) {
+document.getElementById('registerForm')?.addEventListener('submit', function(event) {
     event.preventDefault();
 
     const username = document.getElementById('registerUsername').value;
@@ -59,7 +59,7 @@ document.getElementById('registerForm').addEventListener('submit', function(even
 });
 
 // Handle forgot password form submission
-document.getElementById('forgotPasswordForm').addEventListener('submit', function(event) {
+document.getElementById('forgotPasswordForm')?.addEventListener('submit', function(event) {
     event.preventDefault();
 
     const username = document.getElementById('forgotPasswordUsername').value;
@@ -80,12 +80,16 @@ document.getElementById('logoutButton')?.addEventListener('click', function() {
     window.location.href = 'index.html';
 });
 
-// Dashboard welcome message
-if (window.location.pathname.includes('dashboard.html')) {
+// Check login status on protected pages
+function checkLogin() {
     const loggedInUser = localStorage.getItem('loggedInUser');
     if (!loggedInUser) {
         window.location.href = 'index.html';
-    } else {
+    } else if (document.getElementById('welcomeMessage')) {
         document.getElementById('welcomeMessage').innerText = `Hello, ${loggedInUser}!`;
     }
+}
+
+if (['dashboard.html', 'profile.html', 'settings.html'].includes(window.location.pathname.split('/').pop())) {
+    checkLogin();
 }
